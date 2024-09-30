@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="MagicPose4D: Crafting Articulated Models with Appearance and Motion Control">
+  <meta name="keywords" content="Controllable Human Dance, Video Generation, Diffusion">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MagicPose4D: Crafting Articulated Models with Appearance and Motion Control</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/doge.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MagicPose4D: Crafting Articulated Models <br>with Appearance and Motion Control</h1>
+          <div class="is-size-5 publication-authors"></div>
+          <span class="author-block">
+            Anonymous Authors</span>
+          </div>
+        
+
+            
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser video-->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/teaser1.mp4"
+        type="video/mp4">
+      </video>
+      </h2>
+    </div>
+  </div>
+</section> -->
+<!-- End teaser video -->
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/ours/hiphop-1-humanoid.mp4"
+        type="video/mp4">
+      </video>
+          <video width="" autoplay controls muted loop height="100%">
+            <source src="static/videos/ours/deerattack-1-animal.mp4"
+             type="video/mp4">
+          </video>
+          <video width="" autoplay controls muted loop height="100%">
+            <source src="static/videos/ours/walkback-1-animal.mp4" 
+            type="video/mp4">
+          </video>
+      </div>
+        <p>
+          We introduce MagicPose4D, a novel framework for 4D generation providing more accurate and customizable 4D motion retargeting. We propose a dual-phase reconstruction process that initially uses accurate 2D and pseudo 3D supervision without skeleton constraints, and subsequently refines the model with skeleton constraints to ensure physical plausibility. We incorporate a novel Global-Local Chamfer loss function that aligns the overall distribution of mesh vertices with the supervision and maintains part-level alignment without additional annotations.
+Our method enables cross-category motion transfer using a kinematic-chain-based skeleton, ensuring smooth transitions between frames through dynamic rigidity and achieving robust generalization without the need for additional training.
+        </p>
+        </br>
+        <img src="static/images/Teaser.png" alt="empty">
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Video</h2>
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/long_video0001-0300.mp4"
+        type="video/mp4">
+      </video>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+
+        <!-- Interpolating. -->
+        <img src="./static/images/Pipeline.png" class="interpolation-image" alt="Interpolate start reference image."/>
+        <p>
+          <br />
+          MagicPose4D accepts two distinct types of input prompts: (i) appearance prompts and (ii) motion prompts. Both images and textual descriptions can function as appearance prompts, delineating the desired object and its visual characteristics. In a departure from existing approaches, MagicPose4D enables users to specify precise motions and trajectories by providing a video/mesh sequence that represents the anticipated movement. MagicPose4D comprises three critical components: (i) the 4D Reconstruction module, (ii) the Cross-Category Motion Transfer module, and (iii) the Image-to-3D Generation module. Each module is tailored to facilitate distinct aspects of dynamic modeling, enabling adaptive 4D reconstructions that align with user-defined specifications. 
+        </p>
+      <!--/ Interpolating. -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <div id="results-carousel11" class="carousel results-carousel">
+            <div class="item item-video1">
+              <video poster="" id="video1" autoplay controls muted loop height="100%">
+                <source src=""
+                type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video2">
+              <video poster="" id="video2" autoplay controls muted loop height="100%">
+                <!-- Your video file here -->
+                <source src=""
+                type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End video carousel -->
+    
+    
+    <!-- Video carousel -->
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-3">Multi-View 4D Generation</h2>
+          <h2 class="title is-4">Animal</h2>
+          <div id="results-carousel22" class="carousel results-carousel">
+          
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/ours/multi-view-1.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+            
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-4">Humanoid</h2>
+          <div id="results-carousel22" class="carousel results-carousel">
+          
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop height="300%">\
+                <!-- Your video file here -->
+                <source src="static/videos/ours/multi-view-2.mp4"
+                type="video/mp4">
+              </video>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End video carousel -->
+
+
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <!-- <h2 class="title is-3">Comparisons</h2>
+      <h2 class="title is-4">Fashion Video Synthesis</h2> -->
+      <div id="results-carousel33" class="carousel results-carousel">
+
+      </div>
+      <!-- <h2 class="content has-text-centered">
+        Fashion Video Synthesis aims to turn fashion photographs into realistic, animated videos using a driving pose sequence. Experiments are conducted on the UBC fashion video dataset with same training data. -->
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+      <div class="container is-max-desktop">
+        
+      <h2 class="title is-3">Comparison to Other Pose Transfer Methods</h2>
+      <h2 class="title is-4">Animals</h3>
+        <div id="results-carousel" class="carousel results-carousel">
+          <p>
+            <center>
+              <span style="display: inline-block;width: 26.9%;">Reference Motion</span>
+              <span style="display: inline-block;width: 23.9%;">Ours</span>
+              <span style="display: inline-block;width: 23.9%;">3D-CoreNet</span>
+              <span style="display: inline-block;width: 23.9%;">X-DualNet</span>
+            </center>
+          </p>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop>
+            <source src="static/videos/deer_attack3_pig.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/deer_attack1_pig.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/deer_attack2_horse.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/bear_death_horse.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/rabbit_run_pig.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <p>
+        <center>
+          <span style="display: inline-block;width: 26.9%;">Reference Motion</span>
+          <span style="display: inline-block;width: 23.9%;">Ours</span>
+          <span style="display: inline-block;width: 23.9%;">3D-CoreNet</span>
+          <span style="display: inline-block;width: 23.9%;">X-DualNet</span>
+        </center>
+      </p>
+      <br /><br /><br />
+      <h3 class="title is-4">Humanoid</h3>
+      <div id="results-carousel33" class="carousel results-carousel">
+        <p>
+          <center>
+            <span style="display: inline-block;width: 26.9%;">Reference Motion</span>
+            <span style="display: inline-block;width: 23.9%;">Ours</span>
+            <span style="display: inline-block;width: 23.9%;">3D-CoreNet</span>
+            <span style="display: inline-block;width: 23.9%;">X-DualNet</span>
+          </center>
+        </p>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop>
+            <source src="static/videos/hiphop_kingkong0001-0100.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/hiphop_penguin0001-0100.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/hiphop_panda0001-0100.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/drunkwalk_kingkong0001-0100.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/drunkwalk_panda0001-0100.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <p>
+        <center>
+          <span style="display: inline-block;width: 26.9%;">Reference Motion</span>
+          <span style="display: inline-block;width: 23.9%;">Ours</span>
+          <span style="display: inline-block;width: 23.9%;">3D-CoreNet</span>
+          <span style="display: inline-block;width: 23.9%;">X-DualNet</span>
+        </center>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Comparison to Image-to-4D Generation Method</h2>
+      <h2 class="title is-4">"Hip-Hop Dancing"</h2>
+      <div id="results-carousel" class="carousel results-carousel" style="display: flex; justify-content: space-around; align-items: center;">
+        
+        <!-- Reference -->
+        <div style="text-align: center;">
+          <img src="static/videos/comp_animate124/kong.png" alt="Reference" style="max-width: 300px;">
+          <p>Reference</p>
+        </div>
+        
+        <!-- Animate124 -->
+        <div style="text-align: center;">
+          <video width="300" autoplay controls muted loop>
+            <source src="static/videos/comp_animate124/video_1.mp4" type="video/mp4">
+          </video>
+          <p>Animate124</p>
+        </div>
+        
+        <!-- Ours -->
+        <div style="text-align: center;">
+          <video width="300" autoplay controls muted loop>
+            <source src="static/videos/comp_animate124/video_1_ours.mp4" type="video/mp4">
+          </video>
+          <p>Ours</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+<h2 class="title is-4">"Running like a rabit"</h2>
+<div id="results-carousel" class="carousel results-carousel" style="display: flex; justify-content: space-around; align-items: center;">
+  
+  <!-- Reference -->
+  <div style="text-align: center;">
+    <img src="static/videos/comp_animate124/pig.jpg" alt="Reference" style="max-width: 300px;">
+    <p>Reference</p>
+  </div>
+  
+  <!-- Animate124 -->
+  <div style="text-align: center;">
+    <video width="300" autoplay controls muted loop>
+      <source src="static/videos/comp_animate124/video_2.mp4" type="video/mp4">
+    </video>
+    <p>Animate124</p>
+  </div>
+  
+  <!-- Ours -->
+  <div style="text-align: center;">
+    <video width="300" autoplay controls muted loop>
+      <source src="static/videos/comp_animate124/video_2_ours.mp4" type="video/mp4">
+    </video>
+    <p>Ours</p>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+<h2 class="title is-4">"Attacking with head"</h2>
+<div id="results-carousel" class="carousel results-carousel" style="display: flex; justify-content: space-around; align-items: center;">
+  
+  <!-- Reference -->
+  <div style="text-align: center;">
+    <img src="static/videos/comp_animate124/pig.jpg" alt="Reference" style="max-width: 300px;">
+    <p>Reference</p>
+  </div>
+  
+  <!-- Animate124 -->
+  <div style="text-align: center;">
+    <video width="300" autoplay controls muted loop>
+      <source src="static/videos/comp_animate124/video2.mp4" type="video/mp4">
+    </video>
+    <p>Animate124</p>
+  </div>
+  
+  <!-- Ours -->
+  <div style="text-align: center;">
+    <video width="300" autoplay controls muted loop>
+      <source src="static/videos/comp_animate124/video2_ours.mp4" type="video/mp4">
+    </video>
+    <p>Ours</p>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+
+
+</body>
+</html>
